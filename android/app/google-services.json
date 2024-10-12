@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "286644546160",
+    "project_id": "learnscience-1ef2d",
+    "storage_bucket": "learnscience-1ef2d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286644546160:android:d52703d1656bc67f6c62b5",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjpGT0EeVeR-2Yi7d5zADIl4AhVWDLFV0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,39 @@
+{
+  "biologia": [
+    { "pista": "¿Qué parte de la planta crece bajo tierra?", "palabra": "raiz" },
+    { "pista": "¿Qué es lo que tienen las mariposas para volar?", "palabra": "alas" },
+    { "pista": "¿Qué usan los animales para respirar?", "palabra": "pulmones" },
+    { "pista": "¿Qué estructura celular lleva la información genética?", "palabra": "ADN" },
+    { "pista": "¿Qué es el fluido rojo que circula por tu cuerpo?", "palabra": "sangre" },
+    { "pista": "¿Qué parte de una planta absorbe la luz?", "palabra": "hoja" },
+    { "pista": "¿Cómo se llama el lugar donde viven los animales y plantas?", "palabra": "ecosistema" },
+    { "pista": "¿Qué ser microscópico puede causar enfermedades?", "palabra": "virus" },
+    { "pista": "¿Qué órgano usamos para ver?", "palabra": "ojos" },
+    { "pista": "¿Cómo se llama el órgano donde las plantas producen frutos?", "palabra": "flor" }
+  ],
+  "quimica": [
+    { "pista": "¿Qué sustancia se compone de H2O?", "palabra": "agua" },
+    { "pista": "¿Qué gas respiramos del aire?", "palabra": "oxigeno" },
+    { "pista": "¿Qué sólido blanco usamos para cocinar y da sabor a la comida?", "palabra": "sal" },
+    { "pista": "¿Qué elemento químico se encuentra en el carbón y es vital para la vida?", "palabra": "carbono" },
+    { "pista": "¿Qué proceso convierte un líquido en gas?", "palabra": "evaporar" },
+    { "pista": "¿Qué reacción ocurre cuando algo arde?", "palabra": "combustion" },
+    { "pista": "¿Qué escala mide si una sustancia es ácida o básica?", "palabra": "pH" },
+    { "pista": "¿Qué sustancia usamos para limpiar piscinas y eliminar bacterias?", "palabra": "cloro" },
+    { "pista": "¿Qué ocurre cuando mezclas un ácido con una base?", "palabra": "neutralizar" },
+    { "pista": "¿Cómo se llama la mezcla de diferentes gases que respiramos?", "palabra": "aire" }
+  ],
+  "fisica": [
+    { "pista": "¿Qué fuerza te mantiene en la Tierra?", "palabra": "gravedad" },
+    { "pista": "¿Qué se mide en Newtons?", "palabra": "fuerza" },
+    { "pista": "¿Qué se usa para calcular qué tan rápido te mueves?", "palabra": "velocidad" },
+    { "pista": "¿Qué forma de energía nos da el sol?", "palabra": "luz" },
+    { "pista": "¿Qué ocurre cuando un objeto cambia de dirección?", "palabra": "aceleracion" },
+    { "pista": "¿Qué se mide en Joules?", "palabra": "energia" },
+    { "pista": "¿Qué mide la cantidad de materia en un objeto?", "palabra": "masa" },
+    { "pista": "¿Qué fenómeno físico hace que algo se detenga al deslizarse?", "palabra": "friccion" },
+    { "pista": "¿Qué se mide en Hertz y describe las ondas?", "palabra": "frecuencia" },
+    { "pista": "¿Qué se mide en Pascales y describe la fuerza sobre una superficie?", "palabra": "presion" }
+  ]
+}
+
