@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/constants.dart';
 import '../../../size_config.dart';
-import '../../juegos/ahorcado.dart';
-import '../../unidades/listaUnidades.dart';
 
 class BannerBiologia extends StatelessWidget {
   const BannerBiologia({
@@ -31,12 +29,12 @@ class BannerBiologia extends StatelessWidget {
                   children: [
                     ListTile(
                       onTap: () {
-                        Navigator.push(
+                        /*Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => ListaUnidadesScreen(area: 'biologia'),
-                          ),
-                        );
+                          )
+                        );*/
                       },
                       leading: Icon(Icons.library_books), // Ícono para el índice de unidades
                       title: Text(
@@ -76,10 +74,10 @@ class BannerBiologia extends StatelessWidget {
                     ),
                     ListTile(
                       onTap: () {
-                        Navigator.push(
+                        /*Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => AhorcadoApp(area: 'biologia')),
-                        );
+                        );*/
                       },
                       leading: Icon(Icons.gamepad), // Ícono para juegos interactivos
                       title: Text(
