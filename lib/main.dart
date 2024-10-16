@@ -2,7 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/controllers/controllerUsuario.dart';
 import 'package:flutter_application/pages/login/login.dart';
-import 'package:flutter_application/mas%20tarde/registrarse.dart';
+import 'package:flutter_application/pages/login/registrarse.dart';
+import 'package:flutter_application/pages/pageRegistroPersona.dart';
 import 'package:flutter_application/theme.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
         "/usuario": (context) => RegistroPersonaScreen(),
         "/login": (context) => LoginScreen(),
         "/registrarse": (context) => RegistrarUsuarioScreen(),
-        "/lista": (context) => ListaPersonasScreen(),
+        //"/lista": (context) => ListaPersonasScreen(),
         "/onboarding": (context) => Onboarding(),
         "/start": (context) => StartApp(),
         "/home": (context) => const Home(),

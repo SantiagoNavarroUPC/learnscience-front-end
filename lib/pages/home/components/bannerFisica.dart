@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/pages/unidades/listaUnidades.dart';
-
 import '../../../constants.dart';
 import '../../../size_config.dart';
-import '../../juegos/ahorcado.dart';
 
 class BannerFisica extends StatelessWidget {
   const BannerFisica({
@@ -32,12 +29,12 @@ class BannerFisica extends StatelessWidget {
                   children: [
                     ListTile(
                       onTap: () {
-                        Navigator.push(
+                        /*Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => ListaUnidadesScreen(area: 'fisica'),
                           ),
-                        );
+                        );*/
                       },
                       leading: Icon(Icons.library_books), // Ícono para el índice de unidades
                       title: Text(
@@ -77,10 +74,10 @@ class BannerFisica extends StatelessWidget {
                     ),
                     ListTile(
                       onTap: () {
-                        Navigator.push(
+                        /*Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => AhorcadoApp(area: 'fisica')),
-                        );
+                        );*/
                       },
                       leading: Icon(Icons.gamepad), // Ícono para juegos interactivos
                       title: Text(

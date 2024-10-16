@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
 import '../../../constants.dart';
 import '../../../size_config.dart';
-import '../../juegos/ahorcado.dart';
-import '../../unidades/listaUnidades.dart';
+
 
 class BannerQuimica extends StatelessWidget {
   const BannerQuimica({
@@ -32,12 +30,12 @@ class BannerQuimica extends StatelessWidget {
                   children: [
                     ListTile(
                       onTap: () {
-                        Navigator.push(
+                        /*Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => ListaUnidadesScreen(area: 'quimica'),
                           ),
-                        );
+                        );*/
                       },
                       leading: Icon(Icons.library_books), // Ícono para el índice de unidades
                       title: Text(
@@ -78,10 +76,10 @@ class BannerQuimica extends StatelessWidget {
                     ),
                     ListTile(
                       onTap: () {
-                        Navigator.push(
+                        /*Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => AhorcadoApp(area: 'quimica')),
-                        );
+                        );*/
                       },
                       leading: Icon(Icons.gamepad), // Ícono para juegos interactivos
                       title: Text(
