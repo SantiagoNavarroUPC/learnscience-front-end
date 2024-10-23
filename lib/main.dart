@@ -1,19 +1,22 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/controllers/controllerUsuario.dart';
+import 'package:flutter_application/pages/home_teacher/home.dart';
 import 'package:flutter_application/pages/login/login.dart';
 import 'package:flutter_application/pages/login/registrarse.dart';
+import 'package:flutter_application/pages/pageListarPersona.dart';
 import 'package:flutter_application/pages/pageRegistroPersona.dart';
 import 'package:flutter_application/theme.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'controllers/controllerPersona.dart';
-import 'pages/home/home.dart';
+import 'pages/home_student/home.dart';
 import 'pages/onboarding/onboarding.dart';
 import 'pages/inicio/start.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
 
   GetPlatform.isWeb
       ? await Firebase.initializeApp(
@@ -47,10 +50,11 @@ class MyApp extends StatelessWidget {
         "/usuario": (context) => RegistroPersonaScreen(),
         "/login": (context) => LoginScreen(),
         "/registrarse": (context) => RegistrarUsuarioScreen(),
-        //"/lista": (context) => ListaPersonasScreen(),
+        "/usuarios": (context) => ListaPersonasScreen(),
         "/onboarding": (context) => Onboarding(),
         "/start": (context) => StartApp(),
-        "/home": (context) => const Home(),
+        "/menu_estudiante": (context) => const HomeStudent(),
+        "/menu_profesor": (context) => const HomeTeacher(),
       },
     );
   }

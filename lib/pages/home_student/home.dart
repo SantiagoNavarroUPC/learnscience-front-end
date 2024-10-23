@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application/constants.dart';
 import 'package:flutter_application/enums.dart';
-import 'package:flutter_application/pages/home/components/body.dart';
+import 'package:flutter_application/pages/home_student/components/body.dart';
 import 'package:get/get.dart';
 
 import '../../components/coustom_bottom_nav_bar.dart';
 
 
-class Home extends StatelessWidget {
+class HomeStudent extends StatelessWidget {
 
-  const Home({Key? key}) : super(key: key);
+  const HomeStudent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -177,24 +177,39 @@ class _LoginScreenState extends State<LoginScreen> {
                                           ),
                                           onPressed: () async {
                                             if (_formKey.currentState!.validate()) {
-                                              // Si la validación es correcta
-                                              final email = emailController.text;
-                                              final password = passwordController.text;
-                                              await usuarioController.loginUsuario(email, password);
-                                              if (usuarioController.usuario.value != null) {
-                                                Navigator.pushReplacementNamed(context, "/home");
+                                            final email = emailController.text;
+                                            final password = passwordController.text;
+                                            await usuarioController.loginUsuario(email, password);
+                                            if (usuarioController.usuario.value != null) {
+                                              final usuario = usuarioController.usuario.value!;
+                                              if (usuario.tipo == 'profesor') {
+                                                Navigator.pushReplacementNamed(context, "/menu_profesor");
+                                              } else if (usuario.tipo == 'estudiante') {
+                                                Navigator.pushReplacementNamed(context, "/menu_estudiante");
                                               } else {
                                                 Get.snackbar(
                                                   'Error',
-                                                  usuarioController.errorMessage.value,
+                                                  'Tipo de usuario desconocido',
                                                   snackPosition: SnackPosition.BOTTOM,
                                                   backgroundColor: gColorTheme_Error,
                                                   colorText: Colors.white,
                                                 );
                                               }
-                                              emailController.clear();
-                                              passwordController.clear();
+                                            } else {
+                                              Get.snackbar(
+                                                'Error',
+                                                usuarioController.errorMessage.value,
+                                                snackPosition: SnackPosition.BOTTOM,
+                                                backgroundColor: gColorTheme_Error,
+                                                colorText: Colors.white,
+                                              );
                                             }
+                                            
+                                            // Limpiar los controladores después de la autenticación
+                                            emailController.clear();
+                                            passwordController.clear();
+                                          }
+
                                           },
                                           child: const Text('Iniciar Sesión'),
                                         ),
