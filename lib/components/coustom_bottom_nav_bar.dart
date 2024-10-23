@@ -14,6 +14,7 @@ class CustomBottomNavBar extends StatelessWidget {
   }) : super(key: key);
 
   final selectedMenu;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +59,21 @@ class CustomBottomNavBar extends StatelessWidget {
                     : inActiveIconColor,
               ),
               onPressed: () {
-                Navigator.pushReplacementNamed(context, "/home");
+                final UsuarioController usuarioController = Get.put(UsuarioController());
+                final usuario = usuarioController.usuario.value!;
+                if (usuario.tipo == 'profesor') {
+                  Navigator.pushReplacementNamed(context, "/menu_profesor");
+                } else if (usuario.tipo == 'estudiante') {
+                  Navigator.pushReplacementNamed(context, "/menu_estudiante");
+                } else {
+                  Get.snackbar(
+                    'Error',
+                    'Tipo de usuario desconocido',
+                    snackPosition: SnackPosition.BOTTOM,
+                    backgroundColor: gColorTheme_Error,
+                    colorText: Colors.white,
+                  );
+                }
               },
             ),
           ],

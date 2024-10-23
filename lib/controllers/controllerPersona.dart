@@ -47,15 +47,10 @@ class PersonaController extends GetxController {
 
   Future<PersonaModel?> obtenerPersonaPorIdUsuario(int idUsuario) async {
   try {
-    // Llama al servicio para obtener la persona por ID de usuario
     final response = await _personaService.obtenerPersonaPorIdUsuario(idUsuario);
-    print('Respuesta JSON obtenida: $response');
-
     if (response != null) {
-      // Decodifica el JSON
-      final data = response['response']; // Extrae el objeto PersonaModel del JSON
+      final data = response['response'];
       if (data != null) {
-        // Crea una instancia de PersonaModel
         PersonaModel persona = PersonaModel.fromJson(data);
         return persona;
       } else {
