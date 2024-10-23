@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/pages/home/components/bannerBiologia.dart';
-import 'package:flutter_application/pages/home/components/bannerFisica.dart';
-import 'package:flutter_application/pages/home/components/bannerQuimica.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_application/pages/home_student/components/bannerBiologia.dart';
+import 'package:flutter_application/pages/home_student/components/bannerFisica.dart';
+import 'package:flutter_application/pages/home_student/components/bannerQuimica.dart';
+import 'package:flutter_application/size_config.dart';
 
 
 class Body extends StatelessWidget {
@@ -16,17 +16,17 @@ class Body extends StatelessWidget {
           children: [
           _buildSection(
             title: 'Curso de Biología',
-            iconPath: 'assets/icons/biologia.svg',
+            icon: Icons.category,
             banner: const BannerBiologia(),
           ),
           _buildSection(
             title: 'Curso de Química',
-            iconPath: 'assets/icons/quimica.svg',
+            icon: Icons.category,
             banner: const BannerQuimica(),
           ),
           _buildSection(
             title: 'Curso de Física',
-            iconPath: 'assets/icons/fisica.svg',
+            icon: Icons.category,
             banner: const BannerFisica(),
           ),
           ],
@@ -37,7 +37,7 @@ class Body extends StatelessWidget {
 
   Widget _buildSection({
     required String title,
-    required String iconPath,
+    required IconData icon,
     required Widget banner,
   }) {
     return Container(
@@ -50,19 +50,23 @@ class Body extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(width: 10),
-              SvgPicture.asset(
-                iconPath,
-                width: 25,
-                height: 25,
+              SizedBox(width: 20),
+              Icon(
+                icon,
+                color: Colors.black,
+                size: getProportionateScreenWidth(20),
               ),
-              SizedBox(width: 10),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+              SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w700,
+                    fontSize: getProportionateScreenWidth(16),
+                  ),
                 ),
               ),
             ],
