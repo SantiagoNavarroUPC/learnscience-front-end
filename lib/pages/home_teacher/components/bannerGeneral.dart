@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 
 class MenuTile extends StatelessWidget {
-  final IconData icon;
+  final String imagePath;
   final String title;
   final Color color;  // Nuevo parámetro de color
 
   const MenuTile({
     Key? key,
-    required this.icon,
+    required this.imagePath,
     required this.title,
     required this.color,  // Requerido
   }) : super(key: key);
@@ -47,7 +47,11 @@ class MenuTile extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 56, color: Colors.white), // Icono blanco por contraste
+            Image.asset(
+              imagePath, // Usamos la ruta de la imagen
+              height: 56, // Ajusta la altura de la imagen
+              width: 56,  // Ajusta el ancho de la imagenOpcional: puedes aplicar un color a la imagen
+            ),
             const SizedBox(height: 8),
             Text(
               title,

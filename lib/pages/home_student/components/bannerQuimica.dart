@@ -119,7 +119,7 @@ class BannerQuimica extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.asset(
-                    'assets/images/quimica.png',
+                    'assets/images/banners/quimica.png',
                     width: getProportionateScreenWidth(80),
                     height: getProportionateScreenWidth(80),
                     fit: BoxFit.cover,
