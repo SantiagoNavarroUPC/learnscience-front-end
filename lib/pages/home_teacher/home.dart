@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_application/components/coustom_bottom_nav_bar.dart';
 import 'package:flutter_application/constants.dart';
 import 'package:flutter_application/enums.dart';
-import 'package:flutter_application/pages/home_teacher/components/bannerGeneral.dart';
+import 'package:flutter_application/pages/home_teacher/components/body.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -35,7 +35,7 @@ class HomeTeacher extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        centerTitle: true, // Esto centra el título
+        centerTitle: true,
         actions: [
           IconButton(
             icon: Icon(Icons.logout),
@@ -45,22 +45,8 @@ class HomeTeacher extends StatelessWidget {
           ),
         ],
       ),
-      body: GridView.count(
-      crossAxisCount: 2,
-      childAspectRatio: 1.0,
-      padding: const EdgeInsets.all(18),
-      mainAxisSpacing: 16,
-      crossAxisSpacing: 16,
-      children: [
-        MenuTile(icon: Icons.book, title: 'Unidades', color: Colors.blue), 
-        MenuTile(icon: Icons.video_library, title: 'Videos\nInteractivos', color: Colors.red),
-        MenuTile(icon: Icons.quiz, title: 'Cuestionarios', color: Colors.pink), 
-        MenuTile(icon: Icons.games, title: 'Videojuegos', color: Colors.green), 
-        MenuTile(icon: Icons.people, title: 'Usuarios', color: Colors.deepPurple),
-        MenuTile(icon: Icons.settings, title: 'Configuración', color: Colors.brown), 
-      ],
-    ),
-    bottomNavigationBar: const CustomBottomNavBar(selectedMenu: MenuState.home),
+      body: const Body(),
+      bottomNavigationBar: const CustomBottomNavBar(selectedMenu: MenuState.home),
     );
   }
 }

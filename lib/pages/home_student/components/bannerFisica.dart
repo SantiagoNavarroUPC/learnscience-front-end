@@ -117,7 +117,7 @@ class BannerFisica extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.asset(
-                    'assets/images/fisica.png',
+                    'assets/images/banners/fisica.png',
                     width: getProportionateScreenWidth(80),
                     height: getProportionateScreenWidth(80),
                     fit: BoxFit.cover,
