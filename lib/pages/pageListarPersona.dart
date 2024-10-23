@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/constants.dart';
 import 'package:flutter_application/controllers/controllerPersona.dart';
+<<<<<<< HEAD
+=======
+import 'package:flutter_application/controllers/controllerUsuario.dart';
+>>>>>>> 53a6b27e66695c3b40941e0d8a535a0e1dd9cf6c
 import 'package:flutter_application/models/Persona.dart';
 import 'package:get/get.dart';
 
@@ -13,12 +17,19 @@ class ListaPersonasScreen extends StatelessWidget {
     personaController.obtenerPersonas();
 
     return Scaffold(
+<<<<<<< HEAD
       appBar: AppBar(title: const Text(
           'Usuarios Activos',
           style: TextStyle(
             fontSize: 20, 
             fontWeight: FontWeight.bold
           ),
+=======
+      appBar: AppBar(
+        title: const Text(
+          'Usuarios Activos',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+>>>>>>> 53a6b27e66695c3b40941e0d8a535a0e1dd9cf6c
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -26,7 +37,12 @@ class ListaPersonasScreen extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
+<<<<<<< HEAD
               final UsuarioController usuarioController = Get.put(UsuarioController());
+=======
+              final UsuarioController usuarioController =
+                  Get.put(UsuarioController());
+>>>>>>> 53a6b27e66695c3b40941e0d8a535a0e1dd9cf6c
               final usuario = usuarioController.usuario.value!;
               if (usuario.tipo == 'profesor') {
                 Navigator.pushReplacementNamed(context, "/menu_profesor");
@@ -85,21 +101,37 @@ class ListaPersonasScreen extends StatelessWidget {
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),
+<<<<<<< HEAD
                               title: Text('${persona.nombre} ${persona.apellido}'),
+=======
+                              title:
+                                  Text('${persona.nombre} ${persona.apellido}'),
+>>>>>>> 53a6b27e66695c3b40941e0d8a535a0e1dd9cf6c
                               subtitle: Text('Cédula: ${persona.cedula}'),
                               trailing: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   IconButton(
+<<<<<<< HEAD
                                     icon: const Icon(Icons.edit, color: gColorTheme1_800),
+=======
+                                    icon: const Icon(Icons.edit,
+                                        color: gColorTheme1_800),
+>>>>>>> 53a6b27e66695c3b40941e0d8a535a0e1dd9cf6c
                                     onPressed: () {
                                       // Acción para editar la persona
                                     },
                                   ),
                                   IconButton(
+<<<<<<< HEAD
                                     icon: const Icon(Icons.delete, color: gColorTheme1_800),
                                     onPressed: () async {
                                     },
+=======
+                                    icon: const Icon(Icons.delete,
+                                        color: gColorTheme1_800),
+                                    onPressed: () async {},
+>>>>>>> 53a6b27e66695c3b40941e0d8a535a0e1dd9cf6c
                                   ),
                                 ],
                               ),

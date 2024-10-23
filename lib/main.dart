@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application/controllers/controllerPersona.dart';
 import 'package:flutter_application/controllers/controllerUsuario.dart';
 import 'package:flutter_application/pages/home_teacher/home.dart';
+import 'package:flutter_application/pages/home_student/home.dart';
 import 'package:flutter_application/pages/login/login.dart';
 import 'package:flutter_application/pages/login/registrarse.dart';
 import 'package:flutter_application/pages/pageListarPersona.dart';
@@ -9,8 +11,6 @@ import 'package:flutter_application/pages/pageRegistroPersona.dart';
 import 'package:flutter_application/theme.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'controllers/controllerPersona.dart';
-import 'pages/home_student/home.dart';
 import 'pages/onboarding/onboarding.dart';
 import 'pages/inicio/start.dart';
 
@@ -29,7 +29,7 @@ void main() async {
               appId: "1:286644546160:android:d52703d1656bc67f6c62b5"))
       : await Firebase.initializeApp();
 
-  await GetStorage.init(); 
+  await GetStorage.init();
   Get.put(PersonaController());
   Get.put(UsuarioController());
 
@@ -59,3 +59,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
