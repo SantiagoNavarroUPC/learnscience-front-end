@@ -32,7 +32,7 @@ class UnidadController extends GetxController {
   }
 
   var unidades = <UnidadModel>[].obs;
-  Future<void> obtenerUnidades({required String area}) async {
+  Future<void> obtenerUnidades() async {
     try {
       isLoading.value = true;
       var listaUnidades = await UnidadRequest().obtenerUnidades();
@@ -49,6 +49,7 @@ class UnidadController extends GetxController {
       isLoading.value = false;
     }
   }
+
   Future<void> obtenerUnidadesPorTipo({String? area}) async {
     try {
       isLoading.value = true;

@@ -5,8 +5,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'package:flutter_application/controllers/controllerUnidad.dart';
 import 'package:get/get.dart';
-import '../../constants.dart';
-import '../../controllers/controllerUsuario.dart';
+import '../../../constants.dart';
+import '../../../controllers/controllerUsuario.dart';
 
 class UnidadAdd extends StatefulWidget {
   static String routeName = "/add_unidad";
@@ -94,7 +94,7 @@ class _UnidadAddState extends State<UnidadAdd> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Agregar una unidad de estudio',
+          'Agregar Unidad de estudio',
           style: TextStyle(
             fontSize: 20, 
             fontWeight: FontWeight.bold

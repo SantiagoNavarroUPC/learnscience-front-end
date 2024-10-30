@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/constants.dart';
+import 'package:flutter_application/pages/unidades/listaUnidades/pagelistaUnidadesEstudiante.dart';
 import '../../../size_config.dart';
 
 class BannerBiologia extends StatelessWidget {
@@ -29,12 +30,12 @@ class BannerBiologia extends StatelessWidget {
                   children: [
                     ListTile(
                       onTap: () {
-                        /*Navigator.push(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ListaUnidadesScreen(area: 'biologia'),
+                            builder: (context) => ListaUnidadesEstudiante(area: 'biologia'),
                           )
-                        );*/
+                        );
                       },
                       leading: Icon(Icons.library_books), // Ícono para el índice de unidades
                       title: Text(
@@ -139,7 +140,7 @@ class BannerBiologia extends StatelessWidget {
                       ),
                       SizedBox(height: getProportionateScreenHeight(5)),
                       Text(
-                        '¡Explora los secretos de la biología con este modulo',
+                        '¡Explora los secretos de la biología con este modulo!',
                         style: TextStyle(
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,

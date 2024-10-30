@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/pages/unidades/listaUnidades/pagelistaUnidadesEstudiante.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
@@ -30,12 +31,12 @@ class BannerQuimica extends StatelessWidget {
                   children: [
                     ListTile(
                       onTap: () {
-                        /*Navigator.push(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ListaUnidadesScreen(area: 'quimica'),
+                            builder: (context) => ListaUnidadesEstudiante(area: 'quimica'),
                           ),
-                        );*/
+                        );
                       },
                       leading: Icon(Icons.library_books), // Ícono para el índice de unidades
                       title: Text(
@@ -141,7 +142,7 @@ class BannerQuimica extends StatelessWidget {
                       ),
                       SizedBox(height: getProportionateScreenHeight(5)),
                       Text(
-                        '¡La química haras que observes cosas sorprendentes',
+                        '¡La química haras que observes cosas sorprendentes!',
                         style: TextStyle(
                           fontFamily: 'Inter',
                           fontWeight: FontWeight.w400,
