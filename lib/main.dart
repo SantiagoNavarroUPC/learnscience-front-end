@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/controllers/controllerPersona.dart';
+import 'package:flutter_application/controllers/controllerUnidad.dart';
 import 'package:flutter_application/controllers/controllerUsuario.dart';
 import 'package:flutter_application/pages/home_teacher/home.dart';
 import 'package:flutter_application/pages/home_student/home.dart';
@@ -8,6 +9,10 @@ import 'package:flutter_application/pages/login/login.dart';
 import 'package:flutter_application/pages/login/registrarse.dart';
 import 'package:flutter_application/pages/pageListarPersona.dart';
 import 'package:flutter_application/pages/pageRegistroPersona.dart';
+import 'package:flutter_application/pages/unidades/agregarUnidades/agregarUnidades.dart';
+import 'package:flutter_application/pages/unidades/listaUnidades/pageListaUnidadesProfesor.dart';
+import 'package:flutter_application/pages/unidades/listaUnidades/pagelistaUnidadesEstudiante.dart';
+import 'package:flutter_application/pages/videos_interactivos/pageVisualizacionVideo.dart';
 import 'package:flutter_application/theme.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -30,6 +35,7 @@ void main() async {
       : await Firebase.initializeApp();
 
   await GetStorage.init();
+  Get.put(UnidadController());
   Get.put(PersonaController());
   Get.put(UsuarioController());
 
@@ -55,6 +61,10 @@ class MyApp extends StatelessWidget {
         "/start": (context) => StartApp(),
         "/menu_estudiante": (context) => const HomeStudent(),
         "/menu_profesor": (context) => const HomeTeacher(),
+        "/unidades_profesor" : (context) => ListaUnidadesProfesor(),
+        "/unidades_estudiante" : (context) => ListaUnidadesEstudiante(area: '',),
+        "/añadirUnidad": (context) => UnidadAdd(),
+        "/videos_interactivos": (context) => InteractiveVideoPage(),
       },
     );
   }

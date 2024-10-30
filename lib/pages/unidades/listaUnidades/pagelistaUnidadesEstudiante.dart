@@ -3,21 +3,20 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_application/constants.dart';
 import 'package:flutter_application/controllers/controllerUnidad.dart';
 import 'package:flutter_application/controllers/controllerUsuario.dart';
+import 'package:flutter_application/pages/unidades/listaUnidades/components/vistaPDF.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:pdfx/pdfx.dart';
 
-class ListaUnidadesScreen extends StatelessWidget {
+class ListaUnidadesEstudiante extends StatelessWidget {
   final UnidadController unidadController = Get.put(UnidadController());
   final String area;
 
-  ListaUnidadesScreen({required this.area});
+  ListaUnidadesEstudiante({required this.area});
 
   @override
   Widget build(BuildContext context) {
     UsuarioController usuarioController = Get.find<UsuarioController>();
-    final rol = usuarioController.usuario.value?.tipo;
     unidadController.obtenerUnidadesPorTipo(area: area);
     return Scaffold(
       appBar: AppBar(
@@ -27,15 +26,6 @@ class ListaUnidadesScreen extends StatelessWidget {
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
-        actions: [
-          if (rol == 'profesor') 
-            IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () {
-                Navigator.pushNamed(context, "/añadirUnidad");
-              },
-            ),
-        ],
       ),
       body: Obx(() {
         if (unidadController.isLoading.value) {
@@ -153,57 +143,5 @@ class ListaUnidadesScreen extends StatelessWidget {
     } catch (e) {
       print('Error al descargar el PDF: $e');
     }
-  }
-}
-
-
-class PDFViewPage extends StatefulWidget {
-  final String filePath;
-
-  PDFViewPage({required this.filePath});
-
-  @override
-  _PDFViewPageState createState() => _PDFViewPageState();
-}
-
-class _PDFViewPageState extends State<PDFViewPage> {
-  PdfController? pdfController;
-
-  @override
-  void initState() {
-    super.initState();
-    pdfController = PdfController(
-      document: PdfDocument.openFile(widget.filePath),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Visor de material educativo',
-          style: TextStyle(
-            fontSize: 20, 
-            fontWeight: FontWeight.bold
-          ),
-        ),
-        centerTitle: true, // Esto centra el título
-      ),
-      body: pdfController == null
-          ? Center(child: CircularProgressIndicator())
-          : PdfView(
-              controller: pdfController!,
-              onDocumentLoaded: (info) {
-                Get.snackbar(
-                  'Documento Cargado',
-                  'Número de páginas: ${info.pagesCount}',
-                  snackPosition: SnackPosition.BOTTOM,
-                  backgroundColor: gColorTheme1_900,
-                  colorText: Colors.white,
-                );
-              },
-            ),
-    );
   }
 }

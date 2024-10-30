@@ -22,10 +22,10 @@ class MenuTile extends StatelessWidget {
         onTap: () {
           switch (title) {
           case 'Unidades':
-            Navigator.pushNamed(context, '/unidades');
+            Navigator.pushNamed(context, '/unidades_profesor');
             break;
           case 'Videos\nInteractivos':
-            Navigator.pushNamed(context, '/videos');
+            Navigator.pushNamed(context, '/videos_interactivos');
             break;
           case 'Cuestionarios':
             Navigator.pushNamed(context, '/cuestionarios');
