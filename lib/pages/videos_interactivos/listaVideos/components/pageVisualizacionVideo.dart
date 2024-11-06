@@ -3,24 +3,27 @@ import 'package:flutter_application/constants.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class InteractiveVideoPage extends StatefulWidget {
+  final String videoUrl;
+
+  InteractiveVideoPage({required this.videoUrl});
+
   @override
   _InteractiveVideoPageState createState() => _InteractiveVideoPageState();
 }
-
 
 class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
   late YoutubePlayerController _youtubePlayerController;
   final TextEditingController _videoThoughtController = TextEditingController();
   final TextEditingController _videoDislikeController = TextEditingController();
   final TextEditingController _videoLifeApplicationController = TextEditingController();
-  bool _isMuted = false; // Variable para controlar el estado de muteo
+  bool _isMuted = false;
 
   @override
   void initState() {
     super.initState();
-    // Usa solo el ID del video aquí
+    final String videoId = YoutubePlayer.convertUrlToId(widget.videoUrl) ?? '';
     _youtubePlayerController = YoutubePlayerController(
-      initialVideoId: 'WQgwaigJlsI', // ID del video
+      initialVideoId: videoId,
       flags: YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
@@ -64,7 +67,7 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
-        backgroundColor: Colors.transparent, // Cambia esto si necesitas otro color
+        backgroundColor: Colors.transparent,
       ),
       body: Column(
         children: [
@@ -84,20 +87,19 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
                 _buildQuestionSection('¿Qué te gustó del video?', _videoDislikeController),
                 _buildQuestionSection('¿Cómo lo llevarías a la vida cotidiana?', _videoLifeApplicationController),
                 SizedBox(height: 20),
-                // Botón para guardar respuestas
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: ElevatedButton(
                     onPressed: _saveResponses,
                     child: Text('Guardar Respuestas'),
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 16), // Espaciado vertical
-                        backgroundColor: gColorTheme1_600,
-                        foregroundColor: gColorTheme1_1,
-                        textStyle: TextStyle( // Color del texto del botón
-                          fontSize: 16, // Tamaño de fuente opcional
-                          fontWeight: FontWeight.bold, // Peso de la fuente opcional
-                        ),
+                      padding: EdgeInsets.symmetric(vertical: 16),
+                      backgroundColor: gColorTheme1_600,
+                      foregroundColor: gColorTheme1_1,
+                      textStyle: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -141,21 +143,14 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
         children: [
           IconButton(
             icon: Icon(Icons.pause, size: 40, color: gColorTheme1_900),
-            color: gColorTheme1_600, // Color del botón
-            onPressed: () {
-              _youtubePlayerController.pause();
-            },
+            onPressed: () => _youtubePlayerController.pause(),
           ),
           IconButton(
             icon: Icon(Icons.play_arrow, size: 40, color: gColorTheme1_900),
-            color: gColorTheme1_600, // Color del botón
-            onPressed: () {
-              _youtubePlayerController.play();
-            },
+            onPressed: () => _youtubePlayerController.play(),
           ),
           IconButton(
             icon: Icon(Icons.replay_10, size: 40, color: gColorTheme1_900),
-            color: gColorTheme1_600, // Color del botón
             onPressed: () {
               _youtubePlayerController.seekTo(
                 Duration(seconds: _youtubePlayerController.value.position.inSeconds - 10),
@@ -164,7 +159,6 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
           ),
           IconButton(
             icon: Icon(Icons.forward_10, size: 40, color: gColorTheme1_900),
-            color: gColorTheme1_600, // Color del botón
             onPressed: () {
               _youtubePlayerController.seekTo(
                 Duration(seconds: _youtubePlayerController.value.position.inSeconds + 10),
@@ -172,20 +166,11 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
             },
           ),
           IconButton(
-            icon: Icon(
-              _isMuted ? Icons.volume_off : Icons.volume_up,
-              size: 40,
-              color: gColorTheme1_900,
-            ),
-            color: gColorTheme1_600, // Color del botón
+            icon: Icon(_isMuted ? Icons.volume_off : Icons.volume_up, size: 40, color: gColorTheme1_900),
             onPressed: () {
               setState(() {
-                if (_isMuted) {
-                  _youtubePlayerController.unMute();
-                } else {
-                  _youtubePlayerController.mute();
-                }
-                _isMuted = !_isMuted; // Cambia el estado de muteo
+                _isMuted ? _youtubePlayerController.unMute() : _youtubePlayerController.mute();
+                _isMuted = !_isMuted;
               });
             },
           ),

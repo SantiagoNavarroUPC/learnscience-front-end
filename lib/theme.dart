@@ -5,11 +5,11 @@ const Color cursorColor = Color.fromARGB(255, 1, 79, 66);
 final ThemeData appTheme = ThemeData(
   primarySwatch: Colors.teal,
   hintColor: cursorColor,
-  textSelectionTheme: TextSelectionThemeData(
+  textSelectionTheme: const TextSelectionThemeData(
     cursorColor: cursorColor, // Configura el color del cursor
   ),
 
-  inputDecorationTheme: InputDecorationTheme(
+  inputDecorationTheme: const InputDecorationTheme(
     enabledBorder: UnderlineInputBorder(
       borderSide: BorderSide(color: cursorColor),
     ),
@@ -23,7 +23,7 @@ final ThemeData appTheme = ThemeData(
       borderSide: BorderSide(color: cursorColor),
     ),
   ),
-  progressIndicatorTheme: ProgressIndicatorThemeData(
+  progressIndicatorTheme: const ProgressIndicatorThemeData(
     color: cursorColor, // Configura el color del ícono de refresh
   ),
   toggleButtonsTheme: ToggleButtonsThemeData(

@@ -9,9 +9,9 @@ UsuarioController controlup = Get.find();
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
-    Key? key,
+    super.key,
     required this.selectedMenu,
-  }) : super(key: key);
+  });
 
   final selectedMenu;
   

@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -240,7 +239,7 @@ class _UnidadAddState extends State<UnidadAdd> {
                       final idUsuario = usuarioController.usuario.value?.idUsuario;
                       
                       final unidadData = {
-                        'idPersona' : 0,
+                        'idUnidad' : 0,
                         'idUsuario': idUsuario,
                         'nombre': name,
                         'descripcion': description,
@@ -248,8 +247,6 @@ class _UnidadAddState extends State<UnidadAdd> {
                         'ruta': pdfUrl,
                         'eliminado' : false
                       };
-
-                      print(jsonEncode(unidadData));
                       controllerUnidad.registrarUnidad(unidadData);
                       Get.snackbar(
                           'Proceso exitoso',

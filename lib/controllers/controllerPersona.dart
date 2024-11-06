@@ -54,15 +54,12 @@ class PersonaController extends GetxController {
         PersonaModel persona = PersonaModel.fromJson(data);
         return persona;
       } else {
-        print('No se encontró la persona con el ID de usuario: $idUsuario');
         return null;
       }
     } else {
-      print('No se encontró la respuesta del servidor');
       return null;
     }
   } catch (e) {
-    print('Error al obtener la persona: $e');
     return null;
   }
 }

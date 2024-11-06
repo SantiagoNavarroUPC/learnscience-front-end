@@ -9,7 +9,6 @@ class ListaPersonasScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Cargar personas cuando se inicia la pantalla
     personaController.obtenerPersonas();
 
     return Scaffold(
