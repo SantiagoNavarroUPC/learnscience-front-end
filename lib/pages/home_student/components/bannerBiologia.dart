@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application/constants.dart';
-import 'package:flutter_application/pages/unidades/listaUnidades/pagelistaUnidadesEstudiante.dart';
+import 'package:flutter_application/pages/unidades/listaUnidades/pageListaUnidadesEstudiante.dart';
+import 'package:flutter_application/pages/videos_interactivos/listaVideos/pageListaVideosEstudiante.dart';
 import '../../../size_config.dart';
 
 class BannerBiologia extends StatelessWidget {
@@ -49,6 +50,12 @@ class BannerBiologia extends StatelessWidget {
                     ),
                     ListTile(
                       onTap: () {
+                         Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ListaVideosEstudiante(area: 'biologia'),
+                          )
+                        );
                       },
                       leading: Icon(Icons.play_circle_filled), // Ícono para videos interactivos
                       title: Text(

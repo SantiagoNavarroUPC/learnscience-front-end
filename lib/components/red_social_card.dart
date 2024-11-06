@@ -5,10 +5,10 @@ import '../size_config.dart';
 
 class RedSocialCard extends StatelessWidget {
   const RedSocialCard({
-    Key? key,
+    super.key,
     this.icon,
     this.press,
-  }) : super(key: key);
+  });
 
   final String? icon;
   final Function? press;

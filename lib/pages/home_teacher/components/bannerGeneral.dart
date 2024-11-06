@@ -25,7 +25,7 @@ class MenuTile extends StatelessWidget {
             Navigator.pushNamed(context, '/unidades_profesor');
             break;
           case 'Videos\nInteractivos':
-            Navigator.pushNamed(context, '/videos_interactivos');
+            Navigator.pushNamed(context, '/videos_interactivos_profesor');
             break;
           case 'Cuestionarios':
             Navigator.pushNamed(context, '/cuestionarios');

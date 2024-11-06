@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application/pages/home_teacher/components/bannerGeneral.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class Body extends StatelessWidget {
         padding: const EdgeInsets.all(18),
         mainAxisSpacing: 16,
         crossAxisSpacing: 16,
-        children: [
+        children: const [
           MenuTile(
             title: 'Unidades', 
             imagePath: 'assets/images/banners/guias.png', // Ruta de la imagen

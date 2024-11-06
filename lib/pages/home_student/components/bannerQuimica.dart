@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/pages/unidades/listaUnidades/pagelistaUnidadesEstudiante.dart';
+import 'package:flutter_application/pages/unidades/listaUnidades/pageListaUnidadesEstudiante.dart';
+import 'package:flutter_application/pages/videos_interactivos/listaVideos/pageListaVideosEstudiante.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
@@ -50,6 +51,12 @@ class BannerQuimica extends StatelessWidget {
                     ),
                     ListTile(
                       onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ListaVideosEstudiante(area: 'quimica'),
+                          ),
+                        );
                       },
                       leading: Icon(Icons.play_circle_filled), // Ícono para videos interactivos
                       title: Text(
