@@ -93,7 +93,7 @@ class UnidadController extends GetxController {
           'Error',
           'No se pudo actualizar la unidad',
           snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: gColorTheme_Error,
+          backgroundColor: gColorThemeError,
           colorText: Colors.white,
         );
       }
@@ -103,7 +103,7 @@ class UnidadController extends GetxController {
         'Error',
         'Ocurrió un error al intentar actualizar la unidad: $e',
         snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: gColorTheme_Error,
+        backgroundColor: gColorThemeError,
         colorText: Colors.white,
       );
       return false;

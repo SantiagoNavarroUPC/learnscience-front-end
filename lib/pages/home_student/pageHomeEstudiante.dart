@@ -9,7 +9,7 @@ import '../../components/coustom_bottom_nav_bar.dart';
 
 class HomeStudent extends StatelessWidget {
 
-  const HomeStudent({Key? key}) : super(key: key);
+  const HomeStudent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class HomeStudent extends StatelessWidget {
         centerTitle: true, // Esto centra el título
         actions: [
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
             onPressed: () {
               _cerrarSesion();
             },
@@ -47,7 +47,7 @@ void _cerrarSesion() {
     );
 
     // Salir de la aplicación después de un pequeño retraso para que la notificación sea visible
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       SystemChannels.platform.invokeMethod('SystemNavigator.pop');
     });
   }

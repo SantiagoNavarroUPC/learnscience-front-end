@@ -22,7 +22,7 @@ class ListaVideosProfesor extends StatelessWidget {
         backgroundColor: Colors.transparent,
         actions: [
           IconButton(
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
             onPressed: () {
               Navigator.pushNamed(context, "/añadirVideo");
             },
@@ -49,7 +49,7 @@ class ListaVideosProfesor extends StatelessWidget {
                         value: area,
                         child: Text(
                           area.capitalize!,
-                          style: TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18),
                         ),
                       );
                     }).toList(),
@@ -60,15 +60,15 @@ class ListaVideosProfesor extends StatelessWidget {
           Expanded(
             child: Obx(() {
               if (videoController.isLoading.value) {
-                return Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
 
               if (videoController.hasError.value) {
-                return Center(child: Text('No se pudieron obtener los videos'));
+                return const Center(child: Text('No se pudieron obtener los videos'));
               }
 
               if (videoController.videos.isEmpty) {
-                return Center(child: Text('No hay videos disponibles para esta área'));
+                return const Center(child: Text('No hay videos disponibles para esta área'));
               }
 
               Color getColorForArea(String area) {
@@ -100,7 +100,7 @@ class ListaVideosProfesor extends StatelessWidget {
                         backgroundColor: getColorForArea(areaSeleccionada.value),
                         child: Text(
                           '${index + 1}',
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                         ),
                       ),
                       title: Text(video.nombre ?? ''),

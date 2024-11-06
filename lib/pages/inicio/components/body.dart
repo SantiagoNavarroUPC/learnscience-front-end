@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../size_config.dart';
-import '../../login/login.dart';
+import '../../login/pageLogin.dart';
 import 'package:animate_do/animate_do.dart';
 
 
@@ -15,7 +15,7 @@ class _BodyState extends State<Body> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
@@ -32,7 +32,7 @@ class _BodyState extends State<Body> {
               child: child,
             );
           },
-          transitionDuration: Duration(seconds: 1), // Ajusta la duración de la transición
+          transitionDuration: const Duration(seconds: 1), // Ajusta la duración de la transición
         ),
       );
     });
@@ -58,9 +58,9 @@ class _BodyState extends State<Body> {
               child: Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: getProportionateScreenWidth(20)),
-                child: Column(
+                child: const Column(
                   children: <Widget>[
-                    const Spacer(flex: 3),
+                    Spacer(flex: 3),
                   ],
                 ),
               ),

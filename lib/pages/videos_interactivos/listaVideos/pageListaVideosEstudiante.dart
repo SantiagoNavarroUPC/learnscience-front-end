@@ -10,7 +10,7 @@ class ListaVideosEstudiante extends StatelessWidget {
   final VideoController videoController = Get.put(VideoController());
   final String area;
 
-  ListaVideosEstudiante({required this.area});
+  ListaVideosEstudiante({super.key, required this.area});
 
   @override
   Widget build(BuildContext context) {
@@ -28,15 +28,15 @@ class ListaVideosEstudiante extends StatelessWidget {
       ),
       body: Obx(() {
         if (videoController.isLoading.value) {
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         }
 
         if (videoController.hasError.value) {
-          return Center(child: Text('No se pudieron obtener los videos'));
+          return const Center(child: Text('No se pudieron obtener los videos'));
         }
 
         if (videoController.videos.isEmpty) {
-          return Center(child: Text('No hay videos disponibles para esta área'));
+          return const Center(child: Text('No hay videos disponibles para esta área'));
         }
         
         Color getColorForArea() {
@@ -64,17 +64,17 @@ class ListaVideosEstudiante extends StatelessWidget {
 
               return ListTile(
                 leading: CircleAvatar(
-                  backgroundColor: isEliminado ? gColorTheme_Inactive : getColorForArea(),
+                  backgroundColor: isEliminado ? gColorThemeInactive : getColorForArea(),
                   child: Text(
                     '${index + 1}',
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
                 title: Text('${video.nombre}'),
                 subtitle: Text('${video.descripcion}'),
                 trailing: (usuarioController.usuario.value?.tipo == 'profesor') 
                     ? DropdownButton<bool>(
-                        icon: Icon(Icons.edit, color: isEliminado ? gColorTheme_Inactive : getColorForArea()),
+                        icon: Icon(Icons.edit, color: isEliminado ? gColorThemeInactive : getColorForArea()),
                         onChanged: (bool? newValue) {
                           if (newValue != null) {
                             video.eliminado = newValue;
@@ -93,7 +93,7 @@ class ListaVideosEstudiante extends StatelessWidget {
                             });
                           }
                         },
-                        items: [
+                        items: const [
                           DropdownMenuItem<bool>(
                             value: false,
                             child: Text('Activo', style: TextStyle(color: Colors.black)),
@@ -111,7 +111,7 @@ class ListaVideosEstudiante extends StatelessWidget {
                       'Video Inactivo',
                       'Este video no está activo.',
                       snackPosition: SnackPosition.BOTTOM,
-                      backgroundColor: gColorTheme_Inactive,
+                      backgroundColor: gColorThemeInactive,
                       colorText: Colors.white,
                     );
                   } else {

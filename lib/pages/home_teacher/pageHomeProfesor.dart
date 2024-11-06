@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 class HomeTeacher extends StatelessWidget {
-  const HomeTeacher({Key? key}) : super(key: key);
+  const HomeTeacher({super.key});
 
   void _cerrarSesion() {
     // Mostrar notificación con GetX
@@ -19,7 +19,7 @@ class HomeTeacher extends StatelessWidget {
       backgroundColor: gColorTheme1_800,
       colorText: Colors.white,
     );
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       SystemChannels.platform.invokeMethod('SystemNavigator.pop');
     });
   }
@@ -38,7 +38,7 @@ class HomeTeacher extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.logout),
+            icon: const Icon(Icons.logout),
             onPressed: () {
               _cerrarSesion();
             },

@@ -5,7 +5,7 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 class InteractiveVideoPage extends StatefulWidget {
   final String videoUrl;
 
-  InteractiveVideoPage({required this.videoUrl});
+  const InteractiveVideoPage({super.key, required this.videoUrl});
 
   @override
   _InteractiveVideoPageState createState() => _InteractiveVideoPageState();
@@ -24,7 +24,7 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
     final String videoId = YoutubePlayer.convertUrlToId(widget.videoUrl) ?? '';
     _youtubePlayerController = YoutubePlayerController(
       initialVideoId: videoId,
-      flags: YoutubePlayerFlags(
+      flags: const YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
       ),
@@ -44,14 +44,14 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Respuestas Guardadas'),
-        content: Text('Tus respuestas han sido guardadas.'),
+        title: const Text('Respuestas Guardadas'),
+        content: const Text('Tus respuestas han sido guardadas.'),
         actions: [
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
             },
-            child: Text('Cerrar'),
+            child: const Text('Cerrar'),
           ),
         ],
       ),
@@ -78,7 +78,7 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
               showVideoProgressIndicator: true,
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Expanded(
             child: ListView(
               children: [
@@ -86,21 +86,21 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
                 _buildQuestionSection('¿De qué trata el video?', _videoThoughtController),
                 _buildQuestionSection('¿Qué te gustó del video?', _videoDislikeController),
                 _buildQuestionSection('¿Cómo lo llevarías a la vida cotidiana?', _videoLifeApplicationController),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: ElevatedButton(
                     onPressed: _saveResponses,
-                    child: Text('Guardar Respuestas'),
                     style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(vertical: 16),
+                      padding: const EdgeInsets.symmetric(vertical: 16),
                       backgroundColor: gColorTheme1_600,
                       foregroundColor: gColorTheme1_1,
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    child: const Text('Guardar Respuestas'),
                   ),
                 ),
               ],
@@ -119,13 +119,13 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
         children: [
           Text(
             question,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           TextField(
             controller: controller,
             maxLines: 2,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               border: OutlineInputBorder(),
               hintText: 'Escribe tu respuesta aquí...',
             ),
@@ -142,15 +142,15 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           IconButton(
-            icon: Icon(Icons.pause, size: 40, color: gColorTheme1_900),
+            icon: const Icon(Icons.pause, size: 40, color: gColorTheme1_900),
             onPressed: () => _youtubePlayerController.pause(),
           ),
           IconButton(
-            icon: Icon(Icons.play_arrow, size: 40, color: gColorTheme1_900),
+            icon: const Icon(Icons.play_arrow, size: 40, color: gColorTheme1_900),
             onPressed: () => _youtubePlayerController.play(),
           ),
           IconButton(
-            icon: Icon(Icons.replay_10, size: 40, color: gColorTheme1_900),
+            icon: const Icon(Icons.replay_10, size: 40, color: gColorTheme1_900),
             onPressed: () {
               _youtubePlayerController.seekTo(
                 Duration(seconds: _youtubePlayerController.value.position.inSeconds - 10),
@@ -158,7 +158,7 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
             },
           ),
           IconButton(
-            icon: Icon(Icons.forward_10, size: 40, color: gColorTheme1_900),
+            icon: const Icon(Icons.forward_10, size: 40, color: gColorTheme1_900),
             onPressed: () {
               _youtubePlayerController.seekTo(
                 Duration(seconds: _youtubePlayerController.value.position.inSeconds + 10),

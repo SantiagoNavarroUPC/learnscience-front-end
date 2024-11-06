@@ -75,7 +75,7 @@ class PersonaController extends GetxController {
             'Error',
             'Error al encontrar personas',
             snackPosition: SnackPosition.BOTTOM,
-            backgroundColor: gColorTheme_Error,
+            backgroundColor: gColorThemeError,
             colorText: Colors.white,
           );
     }
