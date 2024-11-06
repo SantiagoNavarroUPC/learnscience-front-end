@@ -70,7 +70,7 @@ class CustomBottomNavBar extends StatelessWidget {
                     'Error',
                     'Tipo de usuario desconocido',
                     snackPosition: SnackPosition.BOTTOM,
-                    backgroundColor: gColorTheme_Error,
+                    backgroundColor: gColorThemeError,
                     colorText: Colors.white,
                   );
                 }

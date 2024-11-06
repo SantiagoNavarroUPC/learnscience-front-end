@@ -3,10 +3,9 @@ import 'package:flutter_application/constants.dart';
 import 'package:flutter_application/controllers/controllerUsuario.dart';
 import 'package:flutter_application/controllers/controllerVideo.dart';
 import 'package:get/get.dart';
-import 'dart:convert';
 
 class VideoAdd extends StatefulWidget {
-  static String routeName = "/add_video";
+  const VideoAdd({super.key});
 
   @override
   _VideoAddState createState() => _VideoAddState();
@@ -54,7 +53,7 @@ class _VideoAddState extends State<VideoAdd> {
         backgroundColor: Colors.transparent,
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: ListView(
@@ -62,7 +61,7 @@ class _VideoAddState extends State<VideoAdd> {
               TextFormField(
                 controller: _nameController,
                 cursorColor: Colors.teal,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Nombre del Video',
                   labelStyle: TextStyle(color: Colors.black),
                   focusedBorder: UnderlineInputBorder(
@@ -79,11 +78,11 @@ class _VideoAddState extends State<VideoAdd> {
                   return null;
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextFormField(
                 controller: _descriptionController,
                 cursorColor: Colors.teal,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Descripción',
                   labelStyle: TextStyle(color: Colors.black),
                   focusedBorder: UnderlineInputBorder(
@@ -100,10 +99,10 @@ class _VideoAddState extends State<VideoAdd> {
                   return null;
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               DropdownButtonFormField<String>(
                 value: _tipo,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Tipo de Video',
                   labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.normal),
                   focusedBorder: UnderlineInputBorder(
@@ -113,7 +112,7 @@ class _VideoAddState extends State<VideoAdd> {
                     borderSide: BorderSide(color: Colors.black),
                   ),
                 ),
-                items: [
+                items: const [
                   DropdownMenuItem(
                     value: 'biologia',
                     child: Text(
@@ -148,11 +147,11 @@ class _VideoAddState extends State<VideoAdd> {
                   });
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               TextFormField(
                 controller: _urlController,
                 cursorColor: Colors.teal,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'URL del Video (YouTube)',
                   labelStyle: TextStyle(color: Colors.black),
                   focusedBorder: UnderlineInputBorder(
@@ -171,7 +170,7 @@ class _VideoAddState extends State<VideoAdd> {
                   return null;
                 },
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               ElevatedButton(
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
@@ -190,8 +189,6 @@ class _VideoAddState extends State<VideoAdd> {
                       'ruta': videoUrl,
                       'eliminado': false
                     };
-
-                    print(jsonEncode(videoData));
                     controllerVideo.registrarVideo(videoData);
                     Get.snackbar(
                       'Proceso exitoso',
@@ -210,7 +207,7 @@ class _VideoAddState extends State<VideoAdd> {
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                 ),
-                child: Text('Agregar Video'),
+                child: const Text('Agregar Video'),
               ),
             ],
           ),

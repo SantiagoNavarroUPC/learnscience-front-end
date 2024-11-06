@@ -104,7 +104,7 @@ class ListaUnidadesProfesor extends StatelessWidget {
 
                     return ListTile(
                       leading: CircleAvatar(
-                        backgroundColor: isEliminado ? gColorTheme_Inactive : getColorForArea(areaSeleccionada!),
+                        backgroundColor: isEliminado ? gColorThemeInactive : getColorForArea(areaSeleccionada!),
                         child: Text(
                           '${index + 1}',
                           style: TextStyle(color: Colors.white),
@@ -114,7 +114,7 @@ class ListaUnidadesProfesor extends StatelessWidget {
                       subtitle: Text('${unidad.descripcion}'),
                       trailing: (rol == 'profesor') 
                           ? DropdownButton<bool>(
-                              icon: Icon(Icons.edit, color: isEliminado ? gColorTheme_Inactive : getColorForArea(areaSeleccionada!)),
+                              icon: Icon(Icons.edit, color: isEliminado ? gColorThemeInactive : getColorForArea(areaSeleccionada!)),
                               onChanged: (bool? newValue) {
                                 if (newValue != null) {
                                   unidad.eliminado = newValue;
@@ -133,7 +133,7 @@ class ListaUnidadesProfesor extends StatelessWidget {
                                   });
                                 }
                               },
-                              items: [
+                              items: const [
                                 DropdownMenuItem<bool>(
                                   value: false,
                                   child: Text('Activo', style: TextStyle(color: Colors.black)),
@@ -151,7 +151,7 @@ class ListaUnidadesProfesor extends StatelessWidget {
                             'Unidad Inactiva',
                             'Esta unidad no está activa.',
                             snackPosition: SnackPosition.BOTTOM,
-                            backgroundColor: gColorTheme_Inactive,
+                            backgroundColor: gColorThemeInactive,
                             colorText: Colors.white,
                           );
                         } else {

@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import '../../controllers/controllerUsuario.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -64,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Container(
                       width: 200,
                       height: 150,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/images/login.png'),
                           fit: BoxFit.cover,
@@ -72,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 400), // Limita el ancho máximo
+                      constraints: const BoxConstraints(maxWidth: 400), // Limita el ancho máximo
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -110,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                             keyboardType: TextInputType.emailAddress,
-                            style: TextStyle(color: Colors.black),
+                            style: const TextStyle(color: Colors.black),
                             cursorColor: Colors.teal,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -128,11 +130,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             controller: passwordController,
                             obscureText: _obscureText,
                             decoration: InputDecoration(
-                              labelStyle: TextStyle(color: Colors.black),
-                              focusedBorder: UnderlineInputBorder(
+                              labelStyle: const TextStyle(color: Colors.black),
+                              focusedBorder: const UnderlineInputBorder(
                                 borderSide: BorderSide(color: gColorTheme1_900),
                               ),
-                              enabledBorder: UnderlineInputBorder(
+                              enabledBorder: const UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.black),
                               ),
                               labelText: 'Contraseña',
@@ -147,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 },
                               ),
                             ),
-                            style: TextStyle(color: Colors.black),
+                            style: const TextStyle(color: Colors.black),
                             cursorColor: Colors.teal,
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -183,15 +185,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                             if (usuarioController.usuario.value != null) {
                                               final usuario = usuarioController.usuario.value!;
                                               if (usuario.tipo == 'profesor') {
-                                                Navigator.pushReplacementNamed(context, "/menu_profesor");
+                                                Get.toNamed("/menu_profesor");
                                               } else if (usuario.tipo == 'estudiante') {
-                                                Navigator.pushReplacementNamed(context, "/menu_estudiante");
+                                                 Get.toNamed('/menu_estudiante');
                                               } else {
                                                 Get.snackbar(
                                                   'Error',
                                                   'Tipo de usuario desconocido',
                                                   snackPosition: SnackPosition.BOTTOM,
-                                                  backgroundColor: gColorTheme_Error,
+                                                  backgroundColor: gColorThemeError,
                                                   colorText: Colors.white,
                                                 );
                                               }
@@ -200,12 +202,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 'Error',
                                                 usuarioController.errorMessage.value,
                                                 snackPosition: SnackPosition.BOTTOM,
-                                                backgroundColor: gColorTheme_Error,
+                                                backgroundColor: gColorThemeError,
                                                 colorText: Colors.white,
                                               );
                                             }
-                                            
-                                            // Limpiar los controladores después de la autenticación
                                             emailController.clear();
                                             passwordController.clear();
                                           }

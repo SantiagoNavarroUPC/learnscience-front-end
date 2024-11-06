@@ -21,8 +21,8 @@ const gColorTheme1_600 = Color(0xFF00897B);
 const gColorTheme1_700 = Color(0xFF00796B);
 const gColorTheme1_800 = Color(0xFF00695C);
 const gColorTheme1_900 = Color(0xFF004D40);
-const gColorTheme_Error = Color(0xFFE53935);
-const gColorTheme_Inactive = Color(0xFF616161);
+const gColorThemeError = Color(0xFFE53935);
+const gColorThemeInactive = Color(0xFF616161);
 
 
 const gPrimaryGradientColor = LinearGradient(

@@ -63,7 +63,7 @@ class ListaUnidadesEstudiante extends StatelessWidget {
 
               return ListTile(
                 leading: CircleAvatar(
-                  backgroundColor: isEliminado ? gColorTheme_Inactive : getColorForArea(),
+                  backgroundColor: isEliminado ? gColorThemeInactive : getColorForArea(),
                   child: Text(
                     '${index + 1}',
                     style: TextStyle(color: Colors.white),
@@ -73,7 +73,7 @@ class ListaUnidadesEstudiante extends StatelessWidget {
                 subtitle: Text('${unidad.descripcion}'),
                 trailing: (usuarioController.usuario.value?.tipo == 'profesor') 
                     ? DropdownButton<bool>(
-                        icon: Icon(Icons.edit, color: isEliminado ? gColorTheme_Inactive : getColorForArea()),
+                        icon: Icon(Icons.edit, color: isEliminado ? gColorThemeInactive : getColorForArea()),
                         onChanged: (bool? newValue) {
                           if (newValue != null) {
                             unidad.eliminado = newValue;
@@ -110,7 +110,7 @@ class ListaUnidadesEstudiante extends StatelessWidget {
                       'Unidad Inactiva',
                       'Esta unidad no está activa.',
                       snackPosition: SnackPosition.BOTTOM,
-                      backgroundColor: gColorTheme_Inactive,
+                      backgroundColor: gColorThemeInactive,
                       colorText: Colors.white,
                     );
                   } else {

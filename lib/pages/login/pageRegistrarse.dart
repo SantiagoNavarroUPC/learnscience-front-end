@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import '../../controllers/controllerUsuario.dart';
 
 class RegistrarUsuarioScreen extends StatefulWidget {
+  const RegistrarUsuarioScreen({super.key});
+
   @override
   _RegistrarUsuarioScreenState createState() => _RegistrarUsuarioScreenState();
 }
@@ -30,7 +32,7 @@ class _RegistrarUsuarioScreenState extends State<RegistrarUsuarioScreen> {
       try {
         final success = await usuarioController.registrarUsuario(usuario);
         if (success) {
-          Navigator.pushReplacementNamed(context, "/login");
+          Get.toNamed("/login");
           Get.snackbar(
             'Éxito',
             'Usuario registrado con éxito',
@@ -43,7 +45,7 @@ class _RegistrarUsuarioScreenState extends State<RegistrarUsuarioScreen> {
             'Error',
             usuarioController.errorMessage.value,
             snackPosition: SnackPosition.BOTTOM,
-            backgroundColor: gColorTheme_Error,
+            backgroundColor: gColorThemeError,
             colorText: Colors.white,
 
           );
@@ -53,7 +55,7 @@ class _RegistrarUsuarioScreenState extends State<RegistrarUsuarioScreen> {
           'Error',
           'Error al registrar usuario: $e',
           snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: gColorTheme_Inactive,
+          backgroundColor: gColorThemeInactive,
           colorText: Colors.white,
         );
       }
@@ -124,7 +126,7 @@ class _RegistrarUsuarioScreenState extends State<RegistrarUsuarioScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           // Título grande en negrita
-                          Text(
+                          const Text(
                             'Bienvenido a\nLearnScience',
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -163,11 +165,11 @@ class _RegistrarUsuarioScreenState extends State<RegistrarUsuarioScreen> {
                             controller: contrasenaController,
                             decoration: InputDecoration(
                               labelText: 'Contraseña',
-                              labelStyle: TextStyle(color: Colors.black), // Color de la etiqueta cuando no está enfocado// Color de la etiqueta cuando está enfocado
-                              focusedBorder: UnderlineInputBorder(
+                              labelStyle: const TextStyle(color: Colors.black), // Color de la etiqueta cuando no está enfocado// Color de la etiqueta cuando está enfocado
+                              focusedBorder: const UnderlineInputBorder(
                                 borderSide: BorderSide(color: gColorTheme1_900), // Color del borde inferior cuando está enfocado
                               ),
-                              enabledBorder: UnderlineInputBorder(
+                              enabledBorder: const UnderlineInputBorder(
                                 borderSide: BorderSide(color: Colors.black), // Color del borde inferior cuando no está enfocado
                               ),
                               suffixIcon: IconButton(

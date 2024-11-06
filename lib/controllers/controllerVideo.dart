@@ -111,7 +111,7 @@ class VideoController extends GetxController {
           'Error',
           'No se pudo actualizar el video',
           snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: gColorTheme_Error,
+          backgroundColor: gColorThemeError,
           colorText: Colors.white,
         );
       }
@@ -121,7 +121,7 @@ class VideoController extends GetxController {
         'Error',
         'Ocurrió un error al intentar actualizar el video: $e',
         snackPosition: SnackPosition.BOTTOM,
-        backgroundColor: gColorTheme_Error,
+        backgroundColor: gColorThemeError,
         colorText: Colors.white,
       );
       return false;

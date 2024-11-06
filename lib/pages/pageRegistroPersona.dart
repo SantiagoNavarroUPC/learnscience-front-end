@@ -8,6 +8,8 @@ import '../enums.dart';
 import '../models/Persona.dart';
 
 class RegistroPersonaScreen extends StatefulWidget {
+  const RegistroPersonaScreen({super.key});
+
   @override
   _RegistroPersonaScreenState createState() => _RegistroPersonaScreenState();
 }
@@ -94,7 +96,7 @@ class _RegistroPersonaScreenState extends State<RegistroPersonaScreen> {
             'Error',
             'Error al suministrar datos',
             snackPosition: SnackPosition.BOTTOM,
-            backgroundColor: gColorTheme_Error,
+            backgroundColor: gColorThemeError,
             colorText: Colors.white,
           );
         }
@@ -220,7 +222,7 @@ class _RegistroPersonaScreenState extends State<RegistroPersonaScreen> {
                           icon: Icons.location_on,
                           enabled: _isEditing,
                         ),
-                        SizedBox(height: 20),
+                        const SizedBox(height: 20),
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
@@ -259,16 +261,16 @@ class _RegistroPersonaScreenState extends State<RegistroPersonaScreen> {
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
-          focusedBorder: UnderlineInputBorder(
+          focusedBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: gColorTheme1_900), // Color del borde inferior cuando está enfocado
           ),
           labelText: label,
-          labelStyle: TextStyle(color: Colors.black),
+          labelStyle: const TextStyle(color: Colors.black),
           prefixIcon: Icon(icon, color: Colors.black),
           enabled: enabled,
         ),
         keyboardType: keyboardType,
-        style: TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.black),
         validator: (value) {
           if (value == null || value.isEmpty) {
             return 'Por favor ingrese $label';

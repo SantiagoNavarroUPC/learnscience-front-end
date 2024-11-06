@@ -23,7 +23,7 @@ class ListaPersonasScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         actions: [
           IconButton(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             onPressed: () {
               Navigator.pushReplacementNamed(context, "/home");
             },
@@ -75,7 +75,7 @@ class ListaPersonasScreen extends StatelessWidget {
                                 backgroundColor: gColorTheme1_800,
                                 child: Text(
                                   '${persona.nombre[0]}${persona.apellido[0]}',
-                                  style: TextStyle(color: Colors.white),
+                                  style: const TextStyle(color: Colors.white),
                                 ),
                               ),
                               title: Text('${persona.nombre} ${persona.apellido}'),
@@ -125,7 +125,7 @@ class ListaPersonasScreen extends StatelessWidget {
                 'Detalles de la Persona',
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text('Cédula: ${persona.cedula}'),
               Text('Nombre: ${persona.nombre}'),
               Text('Apellido: ${persona.apellido}'),
@@ -133,12 +133,12 @@ class ListaPersonasScreen extends StatelessWidget {
               Text('Teléfono: ${persona.telefono}'),
               Text('Dirección: ${persona.direccion}'),
               Text('Activo: ${persona.eliminado == true ? 'No' : 'Sí'}'),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context); // Cierra el BottomSheet
                 },
-                child: Text('Cerrar'),
+                child: const Text('Cerrar'),
               ),
             ],
           ),

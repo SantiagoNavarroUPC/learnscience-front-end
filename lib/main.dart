@@ -5,8 +5,8 @@ import 'package:flutter_application/controllers/controllerUnidad.dart';
 import 'package:flutter_application/controllers/controllerUsuario.dart';
 import 'package:flutter_application/pages/home_teacher/pageHomeProfesor.dart';
 import 'package:flutter_application/pages/home_student/pageHomeEstudiante.dart';
-import 'package:flutter_application/pages/login/login.dart';
-import 'package:flutter_application/pages/login/registrarse.dart';
+import 'package:flutter_application/pages/login/pageLogin.dart';
+import 'package:flutter_application/pages/login/pageRegistrarse.dart';
 import 'package:flutter_application/pages/pageListarPersona.dart';
 import 'package:flutter_application/pages/pageRegistroPersona.dart';
 import 'package:flutter_application/pages/unidades/agregarUnidades/pageAgregarUnidades.dart';
@@ -20,7 +20,7 @@ import 'package:flutter_application/theme.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'pages/onboarding/onboarding.dart';
-import 'pages/inicio/start.dart';
+import 'pages/inicio/pageStart.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -56,21 +56,21 @@ class MyApp extends StatelessWidget {
       theme: appTheme,
       initialRoute: '/start',
       routes: {
-        "/usuario": (context) => RegistroPersonaScreen(),
-        "/login": (context) => LoginScreen(),
-        "/registrarse": (context) => RegistrarUsuarioScreen(),
+        "/usuario": (context) => const RegistroPersonaScreen(),
+        "/login": (context) => const LoginScreen(),
+        "/registrarse": (context) => const RegistrarUsuarioScreen(),
         "/usuarios": (context) => ListaPersonasScreen(),
-        "/onboarding": (context) => Onboarding(),
-        "/start": (context) => StartApp(),
+        "/onboarding": (context) => const Onboarding(),
+        "/start": (context) => const StartApp(),
         "/menu_estudiante": (context) => const HomeStudent(),
         "/menu_profesor": (context) => const HomeTeacher(),
         "/unidades_profesor" : (context) => ListaUnidadesProfesor(),
         "/unidades_estudiante" : (context) => ListaUnidadesEstudiante(area: '',),
         "/añadirUnidad": (context) => UnidadAdd(),
-        "/ver_interactivos": (context) => InteractiveVideoPage(videoUrl: '',),
+        "/ver_interactivos": (context) => const InteractiveVideoPage(videoUrl: '',),
         "/videos_interactivos_profesor": (context) => ListaVideosProfesor(),
         "/videos_interactivos_estudiante": (context) => ListaVideosEstudiante(area: '',),
-        "/añadirVideo": (context) =>VideoAdd(),
+        "/añadirVideo": (context) =>const VideoAdd(),
       },
     );
   }
