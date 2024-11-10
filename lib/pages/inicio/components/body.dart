@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../size_config.dart';
-import '../../login/pageLogin.dart';
+import '../../login/page_login.dart';
 import 'package:animate_do/animate_do.dart';
 
 
@@ -19,7 +19,8 @@ class _BodyState extends State<Body> {
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          pageBuilder: (context, animation, secondaryAnimation) => FadeIn(child: LoginScreen(), duration: Duration(seconds: 2)),
+          pageBuilder: (context, animation, secondaryAnimation) => FadeIn(duration: const Duration(seconds: 2), 
+            child: const LoginScreen()),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             final fadeAnimation = CurvedAnimation(
               parent: animation,

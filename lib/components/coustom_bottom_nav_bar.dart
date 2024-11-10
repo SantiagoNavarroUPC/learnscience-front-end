@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants.dart';
-import '../controllers/controllerUsuario.dart';
+import '../controllers/controller_usuario.dart';
 import '../enums.dart';
 
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/pages/home_teacher/components/bannerGeneral.dart';
+import 'package:flutter_application/pages/home_teacher/components/banner_general.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});

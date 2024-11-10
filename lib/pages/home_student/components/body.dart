@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/pages/home_student/components/bannerBiologia.dart';
-import 'package:flutter_application/pages/home_student/components/bannerFisica.dart';
-import 'package:flutter_application/pages/home_student/components/bannerQuimica.dart';
+import 'package:flutter_application/pages/home_student/components/banner_biologia.dart';
+import 'package:flutter_application/pages/home_student/components/banner_fisica.dart';
+import 'package:flutter_application/pages/home_student/components/banner_quimica.dart';
 import 'package:flutter_application/size_config.dart';
 
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  const Body({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class Body extends StatelessWidget {
     required Widget banner,
   }) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.only(left: 8, right: 8),
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(5),
@@ -52,13 +52,13 @@ class Body extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Icon(
                 icon,
                 color: Colors.black,
                 size: getProportionateScreenWidth(20),
               ),
-              SizedBox(width: 8),
+              const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   title,
