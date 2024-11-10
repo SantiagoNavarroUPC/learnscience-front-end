@@ -1,26 +1,29 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application/controllers/controllerPersona.dart';
-import 'package:flutter_application/controllers/controllerUnidad.dart';
-import 'package:flutter_application/controllers/controllerUsuario.dart';
-import 'package:flutter_application/pages/home_teacher/pageHomeProfesor.dart';
-import 'package:flutter_application/pages/home_student/pageHomeEstudiante.dart';
-import 'package:flutter_application/pages/login/pageLogin.dart';
-import 'package:flutter_application/pages/login/pageRegistrarse.dart';
-import 'package:flutter_application/pages/pageListarPersona.dart';
-import 'package:flutter_application/pages/pageRegistroPersona.dart';
-import 'package:flutter_application/pages/unidades/agregarUnidades/pageAgregarUnidades.dart';
-import 'package:flutter_application/pages/unidades/listaUnidades/pageListaUnidadesProfesor.dart';
-import 'package:flutter_application/pages/unidades/listaUnidades/pageListaUnidadesEstudiante.dart';
-import 'package:flutter_application/pages/videos_interactivos/agregarVideos/pageAgregarVideos.dart';
-import 'package:flutter_application/pages/videos_interactivos/listaVideos/components/pageVisualizacionVideo.dart';
-import 'package:flutter_application/pages/videos_interactivos/listaVideos/pageListaVideosEstudiante.dart';
-import 'package:flutter_application/pages/videos_interactivos/listaVideos/pageListaVideosProfesor.dart';
+import 'package:flutter_application/controllers/controller_persona.dart';
+import 'package:flutter_application/controllers/controller_pregunta_video.dart';
+import 'package:flutter_application/controllers/controller_unidad.dart';
+import 'package:flutter_application/controllers/controller_usuario.dart';
+import 'package:flutter_application/controllers/controller_video.dart';
+import 'package:flutter_application/pages/home_teacher/page_home_profesor.dart';
+import 'package:flutter_application/pages/home_student/page_home_estudiante.dart';
+import 'package:flutter_application/pages/login/page_login.dart';
+import 'package:flutter_application/pages/login/page_registrarse.dart';
+import 'package:flutter_application/pages/page_lista_persona.dart';
+import 'package:flutter_application/pages/page_registro_persona.dart';
+import 'package:flutter_application/pages/unidades/agregar_unidades/page_agregar_unidades.dart';
+import 'package:flutter_application/pages/unidades/lista_unidades/page_lista_unidades_profesor.dart';
+import 'package:flutter_application/pages/unidades/lista_unidades/page_lista_unidades_estudiante.dart';
+import 'package:flutter_application/pages/videos_interactivos/agregar_videos/page_agregar_videos.dart';
+import 'package:flutter_application/pages/videos_interactivos/lista_videos/components/page_lista_respuestas_video.dart';
+import 'package:flutter_application/pages/videos_interactivos/lista_videos/components/page_visualizacion_video.dart';
+import 'package:flutter_application/pages/videos_interactivos/lista_videos/page_lista_videos_estudiante.dart';
+import 'package:flutter_application/pages/videos_interactivos/lista_videos/page_lista_videos_profesor.dart';
 import 'package:flutter_application/theme.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'pages/onboarding/onboarding.dart';
-import 'pages/inicio/pageStart.dart';
+import 'pages/inicio/page_start.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -41,6 +44,8 @@ void main() async {
   Get.put(UnidadController());
   Get.put(PersonaController());
   Get.put(UsuarioController());
+  Get.put(VideoController());
+  Get.put(PreguntaVideoController());
 
   runApp(const MyApp());
 }
@@ -66,11 +71,12 @@ class MyApp extends StatelessWidget {
         "/menu_profesor": (context) => const HomeTeacher(),
         "/unidades_profesor" : (context) => ListaUnidadesProfesor(),
         "/unidades_estudiante" : (context) => ListaUnidadesEstudiante(area: '',),
-        "/añadirUnidad": (context) => UnidadAdd(),
-        "/ver_interactivos": (context) => const InteractiveVideoPage(videoUrl: '',),
+        "/añadir_unidad": (context) => const UnidadAdd(),
+        "/ver_interactivos": (context) => const InteractiveVideoPage(videoUrl: '',idVideo: 0,),
         "/videos_interactivos_profesor": (context) => ListaVideosProfesor(),
         "/videos_interactivos_estudiante": (context) => ListaVideosEstudiante(area: '',),
-        "/añadirVideo": (context) =>const VideoAdd(),
+        "/añadir_video": (context) =>const VideoAdd(),
+        "/respuestas_videos":(context) => PreguntasVideoPage()
       },
     );
   }
