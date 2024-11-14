@@ -7,6 +7,7 @@ class PersonaModel {
   int edad;
   String telefono;
   String direccion;
+  String? foto;
   bool? eliminado;
 
   PersonaModel({
@@ -18,6 +19,7 @@ class PersonaModel {
     required this.edad,
     required this.telefono,
     required this.direccion,
+    this.foto,
     this.eliminado,
   });
 
@@ -31,6 +33,7 @@ class PersonaModel {
       edad: json['edad'],
       telefono: json['telefono'].toString(),
       direccion: json['direccion'],
+      foto: json['foto'],
       eliminado: json['eliminado'],
     );
   }
@@ -46,6 +49,7 @@ class PersonaModel {
       "telefono": telefono,
       "direccion": direccion,
       "eliminado": eliminado,
+      "foto":foto
     };
   }
 }

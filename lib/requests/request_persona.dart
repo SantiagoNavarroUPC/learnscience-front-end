@@ -54,4 +54,5 @@ class PersonaService {
       throw Exception('Error en la obtención de personas: $e');
     }
   }
+
 }
