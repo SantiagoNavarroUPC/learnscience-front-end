@@ -31,7 +31,7 @@ Widget build(BuildContext context) {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
-              Navigator.pushNamed(context, "/añadirUnidad");
+              Navigator.pushNamed(context, "/añadir_unidad");
             },
           ),
       ],

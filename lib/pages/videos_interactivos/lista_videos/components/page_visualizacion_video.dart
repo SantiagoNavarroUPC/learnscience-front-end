@@ -60,12 +60,12 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
       actions: [
         TextButton(
           onPressed: () {
+            _youtubePlayerController.pause();
             final idUsuario = usuarioController.usuario.value?.idUsuario;
             final idVideo = widget.idVideo;
             final respuesta1 = _videoThoughtController.text;
             final respuesta2 = _videoDislikeController.text;
             final respuesta3 = _videoLifeApplicationController.text;
-
 
             final preguntaVideoData = {
               "idPreguntasVideos": 0,
@@ -78,12 +78,8 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
               'eliminado': false
             };
 
-            // Enviar los datos al controlador
             preguntaVideoController.registrarPreguntaVideo(preguntaVideoData);
             
-            
-
-            // Limpiar los controllers después de enviar las respuestas
             _videoThoughtController.clear();
             _videoDislikeController.clear();
             _videoLifeApplicationController.clear();
@@ -114,6 +110,7 @@ class _InteractiveVideoPageState extends State<InteractiveVideoPage> {
             IconButton(
               icon: const Icon(Icons.list_alt_rounded),
               onPressed: () {
+                _youtubePlayerController.pause();
                 Navigator.pushNamed(context, "/respuestas_videos");
               },
             ),

@@ -10,7 +10,7 @@ import 'package:flutter_application/pages/home_student/page_home_estudiante.dart
 import 'package:flutter_application/pages/login/page_login.dart';
 import 'package:flutter_application/pages/login/page_registrarse.dart';
 import 'package:flutter_application/pages/page_lista_persona.dart';
-import 'package:flutter_application/pages/page_registro_persona.dart';
+import 'package:flutter_application/pages/perfil_usuario/page_registro_persona.dart';
 import 'package:flutter_application/pages/unidades/agregar_unidades/page_agregar_unidades.dart';
 import 'package:flutter_application/pages/unidades/lista_unidades/page_lista_unidades_profesor.dart';
 import 'package:flutter_application/pages/unidades/lista_unidades/page_lista_unidades_estudiante.dart';
@@ -28,8 +28,7 @@ import 'pages/inicio/page_start.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-
-  GetPlatform.isWeb
+   GetPlatform.isWeb
       ? await Firebase.initializeApp(
           options: const FirebaseOptions(
               apiKey: "AIzaSyAjpGT0EeVeR-2Yi7d5zADIl4AhVWDLFV0",

@@ -39,7 +39,7 @@ class _VideoAddState extends State<VideoAdd> {
   }
 
   @override
-Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
   return Scaffold(
     appBar: AppBar(
       title: const Text(
@@ -78,165 +78,173 @@ Widget build(BuildContext context) {
                 ),
               ),
             ),
-            Padding(
+            // Fullscreen Form
+            Container(
+              height: constraints.maxHeight,  // Set height to take full screen
               padding: const EdgeInsets.all(16.0),
-              child: SingleChildScrollView( // Make the form scrollable
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    children: [
-                      TextFormField(
-                        controller: _nameController,
-                        cursorColor: Colors.teal,
-                        decoration: const InputDecoration(
-                          labelText: 'Nombre del Video',
-                          labelStyle: TextStyle(color: Colors.black),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: gColorTheme1_900),
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Por favor, ingresa el nombre del video';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 16.0),
-                      TextFormField(
-                        controller: _descriptionController,
-                        cursorColor: Colors.teal,
-                        decoration: const InputDecoration(
-                          labelText: 'Descripción',
-                          labelStyle: TextStyle(color: Colors.black),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: gColorTheme1_900),
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Por favor, ingresa la descripción';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 16.0),
-                      DropdownButtonFormField<String>(
-                        value: _tipo,
-                        decoration: const InputDecoration(
-                          labelText: 'Tipo de Video',
-                          labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.normal),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: gColorTheme1_900),
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
-                          ),
-                        ),
-                        items: const [
-                          DropdownMenuItem(
-                            value: 'biologia',
-                            child: Text(
-                              'Biología',
-                              style: TextStyle(fontWeight: FontWeight.normal, color: Colors.black),
+              child: SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: IntrinsicHeight(
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          TextFormField(
+                            controller: _nameController,
+                            cursorColor: Colors.teal,
+                            decoration: const InputDecoration(
+                              labelText: 'Nombre del Video',
+                              labelStyle: TextStyle(color: Colors.black),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: gColorTheme1_900),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black),
+                              ),
                             ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Por favor, ingresa el nombre del video';
+                              }
+                              return null;
+                            },
                           ),
-                          DropdownMenuItem(
-                            value: 'quimica',
-                            child: Text(
-                              'Química',
-                              style: TextStyle(fontWeight: FontWeight.normal, color: Colors.black),
+                          const SizedBox(height: 16.0),
+                          TextFormField(
+                            controller: _descriptionController,
+                            cursorColor: Colors.teal,
+                            decoration: const InputDecoration(
+                              labelText: 'Descripción',
+                              labelStyle: TextStyle(color: Colors.black),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: gColorTheme1_900),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black),
+                              ),
                             ),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Por favor, ingresa la descripción';
+                              }
+                              return null;
+                            },
                           ),
-                          DropdownMenuItem(
-                            value: 'fisica',
-                            child: Text(
-                              'Física',
-                              style: TextStyle(fontWeight: FontWeight.normal, color: Colors.black),
+                          const SizedBox(height: 16.0),
+                          DropdownButtonFormField<String>(
+                            value: _tipo,
+                            decoration: const InputDecoration(
+                              labelText: 'Tipo de Video',
+                              labelStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.normal),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: gColorTheme1_900),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black),
+                              ),
                             ),
+                            items: const [
+                              DropdownMenuItem(
+                                value: 'biologia',
+                                child: Text(
+                                  'Biología',
+                                  style: TextStyle(fontWeight: FontWeight.normal, color: Colors.black),
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: 'quimica',
+                                child: Text(
+                                  'Química',
+                                  style: TextStyle(fontWeight: FontWeight.normal, color: Colors.black),
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: 'fisica',
+                                child: Text(
+                                  'Física',
+                                  style: TextStyle(fontWeight: FontWeight.normal, color: Colors.black),
+                                ),
+                              ),
+                            ],
+                            validator: (value) {
+                              if (value == null) {
+                                return 'Por favor, selecciona el tipo de video';
+                              }
+                              return null;
+                            },
+                            onChanged: (value) {
+                              setState(() {
+                                _tipo = value;
+                              });
+                            },
                           ),
-                        ],
-                        validator: (value) {
-                          if (value == null) {
-                            return 'Por favor, selecciona el tipo de video';
-                          }
-                          return null;
-                        },
-                        onChanged: (value) {
-                          setState(() {
-                            _tipo = value;
-                          });
-                        },
+                          const SizedBox(height: 16.0),
+                          TextFormField(
+                            controller: _urlController,
+                            cursorColor: Colors.teal,
+                            decoration: const InputDecoration(
+                              labelText: 'URL del Video (YouTube)',
+                              labelStyle: TextStyle(color: Colors.black),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: gColorTheme1_900),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Por favor, pega la URL del video';
+                              } else if (!value.contains('youtube.com') && !value.contains('youtu.be')) {
+                                return 'La URL debe ser de YouTube';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 16.0),
+                          ElevatedButton(
+                            onPressed: () async {
+                              if (_formKey.currentState!.validate()) {
+                                final name = _nameController.text;
+                                final description = _descriptionController.text;
+                                final videoUrl = _urlController.text;
+                                final tipo = _tipo.toString();
+                                final idUsuario = usuarioController.usuario.value?.idUsuario;
+
+                                final videoData = {
+                                  'idVideo': 0,
+                                  'idUsuario': idUsuario,
+                                  'nombre': name,
+                                  'descripcion': description,
+                                  'tipo': tipo,
+                                  'ruta': videoUrl,
+                                  'eliminado': false
+                                };
+                                controllerVideo.registrarVideo(videoData);
+                                Get.snackbar(
+                                  'Proceso exitoso',
+                                  'El video se registró correctamente',
+                                  snackPosition: SnackPosition.BOTTOM,
+                                  backgroundColor: gColorTheme1_900,
+                                  colorText: Colors.white,
+                                );
+                                _resetForm();
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: gColorTheme1_1,
+                              backgroundColor: gColorTheme1_700,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                            ),
+                            child: const Text('Agregar Video'),
+                            ),
+                          ],
+                        ),
                       ),
-                      const SizedBox(height: 16.0),
-                      TextFormField(
-                        controller: _urlController,
-                        cursorColor: Colors.teal,
-                        decoration: const InputDecoration(
-                          labelText: 'URL del Video (YouTube)',
-                          labelStyle: TextStyle(color: Colors.black),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: gColorTheme1_900),
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black),
-                          ),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Por favor, pega la URL del video';
-                          } else if (!value.contains('youtube.com') && !value.contains('youtu.be')) {
-                            return 'La URL debe ser de YouTube';
-                          }
-                          return null;
-                        },
-                      ),
-                      const SizedBox(height: 16.0),
-                      ElevatedButton(
-                        onPressed: () async {
-                          if (_formKey.currentState!.validate()) {
-                            final name = _nameController.text;
-                            final description = _descriptionController.text;
-                            final videoUrl = _urlController.text;
-                            final tipo = _tipo.toString();
-                            final idUsuario = usuarioController.usuario.value?.idUsuario;
-                            
-                            final videoData = {
-                              'idVideo': 0,
-                              'idUsuario': idUsuario,
-                              'nombre': name,
-                              'descripcion': description,
-                              'tipo': tipo,
-                              'ruta': videoUrl,
-                              'eliminado': false
-                            };
-                            controllerVideo.registrarVideo(videoData);
-                            Get.snackbar(
-                              'Proceso exitoso',
-                              'El video se registró correctamente',
-                              snackPosition: SnackPosition.BOTTOM,
-                              backgroundColor: gColorTheme1_900,
-                              colorText: Colors.white,
-                            );
-                            _resetForm();
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: gColorTheme1_1,                      
-                          backgroundColor: gColorTheme1_700,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                        child: const Text('Agregar Video'),
-                        ),
-                      ],
                     ),
                   ),
                 ),
@@ -248,5 +256,3 @@ Widget build(BuildContext context) {
     );
   }
 }
-
-  
